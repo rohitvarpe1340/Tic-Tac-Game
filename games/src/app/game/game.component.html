@@ -1,0 +1,26 @@
+
+<div class="game-bg">
+  <h1>Tic Tac Toe</h1>
+
+  <div class="container">
+    <div class="game">
+      <button
+        class="box"
+        *ngFor="let box of boxes; let i = index"
+        (click)="onclick(i)"
+        [disabled]="box !== '' || winner !== ''">
+        {{ box }}
+      </button>
+    </div>
+  </div>
+
+  <button id="reset-btn" (click)="resetGame()">Reset Game</button>
+</div>
+
+<div class="card">
+<div class="msg-container" #win [class.hide]="!showMsg">
+  <p id="msg">Congratulations, winner is {{ winner }}</p>
+  <button id="new-btn"  (click)="resetGame()">New Game</button>
+</div>
+</div>
+
